@@ -6,7 +6,7 @@ const projects = [
     title: "Own Portfolio-Website",
     description:
       "A fully responsive, modern portfolio website developed using Next.js to showcase my web development projects, skills, and contact information. The site is designed with a clean and minimal UI, ensuring fast performance, SEO optimization, and a smooth user experience.",
-    url: "https://coffee-house-frontend.vercel.app",
+    url: "https://shivnarayan-portfolio.vercel.app",
     techs: ["Next-Js", "Mongo DB", "Vercel", "Tailwind Css"],
   },
   {
