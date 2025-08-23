@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 const page = () => {
@@ -52,7 +53,11 @@ const page = () => {
               className=" border border-white rounded-[5px] p-2 w-full text-white resize-none"
             />
           </div>
-          <button className="p-2 md:p-2 border border-green-400 text-lg md:text-2xl rounded-2xl hover:bg-green-400 hover:scale-105 transition-all duration-200 shadow-lg hover:text-black shadow-green-800">
+          <button
+            className="p-2 md:p-2 border border-green-400 text-lg md:text-2xl rounded-2xl hover:bg-green-400 hover:scale-105 transition-all duration-200 shadow-lg hover:text-black shadow-green-800"
+            type="button"
+            onClick={() => alert("Backed is under Progress.")}
+          >
             Let's Connect
           </button>
         </form>
