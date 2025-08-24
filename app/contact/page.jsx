@@ -1,7 +1,21 @@
 "use client";
-import React from "react";
+import React, { useActionState, useEffect } from "react";
+import { useAddContact } from "../server/actions/contactActions.js";
+import toast from "react-hot-toast";
 
 const page = () => {
+  const [state, formAction, isPending] = useActionState(useAddContact, null);
+
+  useEffect(() => {
+    if (state?.message) {
+      if (state.success) {
+        toast.success(state.message);
+      } else {
+        toast.error(state.message);
+      }
+    }
+  }, [state?.success, state?.message]);
+
   return (
     <div className="pt-20 pb-4 flex flex-col min-h-screen  justify-start items-center bg-black text-white px-8 md:px-16  lg:px-32 shadow-2xl  gap-8 ">
       <section className="flex flex-col justify-around items-center gap-4 lg:w-[60%] w-full shadow-md  shadow-green-400 rounded-2xl mt-4 ">
@@ -13,11 +27,9 @@ const page = () => {
       </section>
 
       <section className="lg:w-[60%] w-full border border-white rounded-2xl shadow-md shadow-green-400 p-4 ">
-        <form action="" className="space-y-4">
+        <form action={formAction} className="space-y-4">
           <div>
-            <label className="" htmlFor="name">
-              Name
-            </label>
+            <label>Name</label>
             <input
               type="text"
               name="name"
@@ -26,7 +38,7 @@ const page = () => {
             />
           </div>
           <div>
-            <label htmlFor="name">Email</label>
+            <label>Email</label>
             <input
               type="email"
               name="email"
@@ -35,7 +47,7 @@ const page = () => {
             />
           </div>
           <div>
-            <label htmlFor="name">Subject</label>
+            <label>Subject</label>
             <input
               type="text"
               name="subject"
@@ -44,21 +56,26 @@ const page = () => {
             />
           </div>
           <div>
-            <label htmlFor="name">Message</label>
+            <label>Message</label>
             <textarea
               rows={5}
               type="text"
-              name="name"
+              name="message"
               placeholder="What's on your mind ?"
               className=" border border-white rounded-[5px] p-2 w-full text-white resize-none"
             />
           </div>
           <button
-            className="p-2 md:p-2 border border-green-400 text-lg md:text-2xl rounded-2xl hover:bg-green-400 hover:scale-105 transition-all duration-200 shadow-lg hover:text-black shadow-green-800"
-            type="button"
-            onClick={() => alert("Backed is under Progress.")}
+            disabled={isPending}
+            className={`p-2 md:p-2 border text-lg md:text-2xl rounded-2xl transition-all duration-200 shadow-lg shadow-green-800
+    ${
+      isPending
+        ? "bg-gray-500 text-gray-300 cursor-not-allowed"
+        : "bg-green-600 hover:bg-green-400 hover:scale-105 hover:text-black"
+    }
+  `}
           >
-            Let's Connect
+            {isPending ? "Sending..." : "Send"}
           </button>
         </form>
       </section>

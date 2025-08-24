@@ -10,10 +10,10 @@ const Home = () => {
           <Image
             src="/images/profile.jpeg"
             alt="Certificate or Profile"
-            fill
+            fill={true}
             className="object-cover"
-            priority={false}
-            quality={100}
+            priority={true}
+            sizes="(max-width: 768px) 20rem, (min-width: 768px) 27.5rem"
           />
         </div>
       </div>

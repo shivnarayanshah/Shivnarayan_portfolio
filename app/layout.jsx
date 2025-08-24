@@ -1,6 +1,6 @@
 import "./globals.css";
-import NavigationBar from "./components/NavigationBar.jsx";
-import Footer from "./components/Footer.jsx";
+import RootLayoutWrapper from "./components/RootLayoutWrapper.jsx";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "The_Crazy_Dev Profile",
@@ -11,9 +11,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="">
-        <NavigationBar />
-        {children}
-        <Footer />
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{ duration: 2000 }}
+        />
+        <RootLayoutWrapper>{children}</RootLayoutWrapper>
       </body>
     </html>
   );
