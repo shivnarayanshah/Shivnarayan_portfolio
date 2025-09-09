@@ -31,19 +31,19 @@ const Home = () => {
         <div className="flex flex-wrap gap-4">
           <Link
             href={"/contact"}
-            className="p-3 sm:p-4 border border-green-400 text-base sm:text-xl rounded-2xl hover:bg-green-400 hover:scale-105 transition-all duration-200 shadow-lg hover:text-black shadow-green-800"
+            className="p-3 sm:p-4 border border-green-400 text-base sm:text-xl rounded-2xl hover:bg-green-400 hover:scale-105 transition-all duration-200 shadow-lg hover:text-black shadow-green-800 active:scale-97"
           >
             Let's Connect
           </Link>
           <Link
-            className="p-3 sm:p-4 border border-green-400 text-base sm:text-xl rounded-2xl hover:bg-green-400 hover:scale-105 transition-all duration-200 shadow-lg hover:text-black shadow-green-800"
+            className="p-3 sm:p-4 border border-green-400 text-base sm:text-xl rounded-2xl hover:bg-green-400 hover:scale-105 transition-all duration-200 shadow-lg hover:text-black shadow-green-800 active:scale-97"
             href={"/Shivnarayan.pdf"}
             download={"ShivNarayan-Sah-Resume.pdf"}
           >
             Download Resume
           </Link>
           <Link href="/certificate">
-            <button className="p-3 sm:p-4 border border-green-400 text-base sm:text-xl rounded-2xl hover:bg-green-400 hover:scale-105 transition-all duration-200 shadow-lg hover:text-black shadow-green-800">
+            <button className="p-3 sm:p-4 border border-green-400 text-base sm:text-xl rounded-2xl hover:bg-green-400 hover:scale-105 transition-all duration-200 shadow-lg hover:text-black shadow-green-800 active:scale-97">
               View Certificate
             </button>
           </Link>
