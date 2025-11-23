@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+
 import { FaInstagram, FaTiktok, FaGithub } from "react-icons/fa";
 
 const Footer = () => {

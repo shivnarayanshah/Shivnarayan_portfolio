@@ -30,7 +30,7 @@ const NavigationBar = () => {
       <div className="text-transparent bg-gradient-to-r from-green-200 to-green-600 bg-clip-text">
         <Link href="/">
           <span className="text-2xl font-bold cursor-pointer">
-            THE_CRAZY_DEV
+            Shiv_Narayan_Sah
           </span>
         </Link>
       </div>
@@ -87,9 +87,8 @@ const NavigationBar = () => {
       </div>
 
       <div
-        className={`sm:hidden fixed top-16 right-0 w-4/5 max-w-xs h-[calc(100vh-4rem)] bg-black text-white transform transition-transform duration-300 ease-in-out ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`sm:hidden fixed top-16 right-0 w-4/5 max-w-xs h-[calc(100vh-4rem)] bg-black text-white transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex flex-col items-start gap-6 py-6 px-6">
           {navLinks.map((link) => (
