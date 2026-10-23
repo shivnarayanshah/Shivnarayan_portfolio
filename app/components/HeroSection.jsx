@@ -8,7 +8,7 @@ const HeroSection = () => {
             <div className="flex justify-center items-center lg:justify-end order-1 lg:order-2">
                 <div className="relative w-90 h-90 sm:w-100 sm:h-100 md:w-110 md:h-110  border-2 border-green-400 rounded-[50%] shadow-lg shadow-green-800 overflow-hidden hover:shadow-xl ">
                     <Image
-                        src="/images/profile.jpeg"
+                        src="/images/profile.png"
                         alt="Certificate or Profile"
                         fill={true}
                         className="object-cover"
