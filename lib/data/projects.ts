@@ -25,6 +25,20 @@ async function queryPublishedProjects(): Promise<ProjectDTO[]> {
     const projects = await Project.find({ status: "published" })
       .sort({ order: 1, year: -1, createdAt: -1 })
       .lean();
+
+    // A fresh database can connect successfully but still be empty. Use the
+    // initial content until the bootstrap seed or an admin creates projects.
+    // A non-empty collection with only drafts is left alone intentionally.
+    if (projects.length === 0) {
+      const total = await Project.countDocuments({});
+      if (total === 0) {
+        console.warn(
+          "[projects] database is empty — using initial static projects.",
+        );
+        return FALLBACK_PROJECTS;
+      }
+    }
+
     return projects.map((project) =>
       toProjectDTO(project as unknown as Parameters<typeof toProjectDTO>[0]),
     );
@@ -61,7 +75,20 @@ const getCachedProjectBySlug = unstable_cache(
         slug,
         status: "published",
       }).lean();
-      if (!project) return null;
+
+      if (!project) {
+        const total = await Project.countDocuments({});
+        if (total === 0) {
+          console.warn(
+            `[project:${slug}] database is empty — using initial static project.`,
+          );
+          return (
+            FALLBACK_PROJECTS.find((item) => item.slug === slug) ?? null
+          );
+        }
+        return null;
+      }
+
       return toProjectDTO(
         project as unknown as Parameters<typeof toProjectDTO>[0],
       );

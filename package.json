@@ -5,10 +5,12 @@
   "description": "Production-grade, database-driven portfolio for ShivNarayan Sah",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "tsx scripts/seed.ts --bootstrap && next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "seed": "tsx scripts/seed.ts"
+    "seed": "tsx scripts/seed.ts",
+    "seed:admin": "tsx scripts/seed.ts --admin-only",
+    "seed:initial": "tsx scripts/seed.ts --bootstrap"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

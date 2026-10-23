@@ -92,11 +92,22 @@ Cloudinary and Resend are optional. Uploads return a clear error until Cloudinar
 ### 3. Seed the database
 
 ```bash
-npm run seed          # upsert site config, admin user, and six projects
+npm run seed             # upsert site config, admin user, and six projects
 npm run seed -- --reset  # replace existing projects with the seed set
+npm run seed:admin       # upsert only the admin user
+npm run seed:initial     # first-run seed: fill only missing/empty content
 ```
 
 The seed creates the admin account from `ADMIN_EMAIL` / `ADMIN_PASSWORD`. Do not leave those values as the example values in production.
+
+Seed scripts load `.env.local` first and then `.env`, matching Next.js precedence. `npm run build` also runs the first-run seed automatically before `next build`:
+
+- **Admin:** if both `ADMIN_EMAIL` and `ADMIN_PASSWORD` are set, the admin user is created or updated on every build. If neither is set, this step is skipped with a warning. If only one is set, the build fails.
+- **Site settings and projects:** inserted only when the site config is missing or the projects collection is empty. Existing admin-edited content is never overwritten by the build.
+- **Fresh database:** the first build populates the site settings and all six projects before pages are generated, so the home page, project index, project detail pages, and sitemap have content immediately.
+- **Database unavailable:** the build warns and continues with the bundled fallback content, so a transient Atlas problem does not block deployment. Set `SEED_STRICT=true` to fail the build instead. Configuration errors, such as an admin password under 8 characters, still fail the build.
+
+Public project queries also use the bundled project set if MongoDB connects but the projects collection is completely empty. A collection containing only drafts is respected and renders no published projects.
 
 > **MongoDB Atlas:** if seeding fails with `bad auth : authentication failed`, the database user/password in `MONGO_URI` is wrong. If it times out, add your current IP under **Atlas → Network Access**.
 
@@ -113,11 +124,13 @@ npm run dev
 ### Scripts
 
 ```bash
-npm run dev        # development server
-npm run build      # production build
-npm start          # production server
-npm run typecheck  # tsc --noEmit
-npm run seed       # seed MongoDB
+npm run dev          # development server
+npm run build        # first-run seed, then production build
+npm start            # production server
+npm run typecheck    # tsc --noEmit
+npm run seed         # seed site config, admin user, and projects
+npm run seed:admin   # seed only the admin user
+npm run seed:initial # fill only missing/empty site config and projects
 ```
 
 ---
@@ -224,11 +237,12 @@ Public reads are wrapped in `unstable_cache` with the tags `projects` and `site-
 2. Add all environment variables from `.env.example` (use production values).
 3. Set `NEXT_PUBLIC_SITE_URL` to the production domain.
 4. In MongoDB Atlas, allow Vercel egress IPs (`0.0.0.0/0` is the pragmatic option if you do not have static egress).
-5. Seed once from your machine with production credentials:
+5. Optional: upsert all seed content from your machine with production credentials:
    ```bash
    npm run seed
    ```
-6. Deploy. Public pages are statically generated with ISR, so seed **before** the first build whenever possible. If you seed an already-running deployment, trigger the project cache refresh once so the new content replaces the fallback pages without waiting for revalidation:
+   The build already fills an empty database with site settings and six projects, and applies admin credentials from the Vercel environment. Run the full seed only when you want to upsert the complete seed set into an existing database.
+6. Deploy with the default build command (`npm run build`). The build upserts the admin user when configured and bootstraps missing site/project content before static generation. Keep the database reachable from Vercel during builds; if it is not, the build warns and uses fallback content unless `SEED_STRICT=true`. If you seed an already-running deployment, trigger the project cache refresh once so the new content replaces any fallback pages without waiting for revalidation:
    ```bash
    curl -X POST "https://your-domain.com/api/revalidate?tag=projects" \
      -H "x-revalidate-secret: $REVALIDATE_SECRET"
@@ -243,7 +257,7 @@ npm run build
 npm start        # or run behind pm2/nginx
 ```
 
-Use a process manager, terminate TLS at a reverse proxy, and keep `.env.local` out of version control. Set `AUTH_SECRET` to a long random value; production sessions fail closed without it.
+Use a process manager, terminate TLS at a reverse proxy, and keep `.env.local` out of version control. Set `AUTH_SECRET` to a long random value; production sessions fail closed without it. `npm run build` reads the same environment, upserts the admin user when `ADMIN_EMAIL` / `ADMIN_PASSWORD` are set, and fills missing site/project content, so MongoDB must be reachable during the build.
 
 ### External revalidation
 
@@ -290,10 +304,11 @@ New projects default to **Draft**. Publishing immediately revalidates the home p
 | --- | --- |
 | `bad auth : authentication failed` | Database username/password in `MONGO_URI` is wrong; URL-encode special characters. |
 | Connection timeout | Add your IP in Atlas → Network Access; check the cluster hostname. |
-| Login says invalid credentials | Run `npm run seed` with `ADMIN_EMAIL` / `ADMIN_PASSWORD`, then sign in again. |
+| Login says invalid credentials | Run `npm run seed:admin` with `ADMIN_EMAIL` / `ADMIN_PASSWORD`, then sign in again. |
+| Build fails at `Seed failed` | A seed configuration or write error occurred, for example a too-short admin password. Connection failures only stop the build when `SEED_STRICT=true`. |
 | Uploads disabled | Add the three `CLOUDINARY_*` values. |
 | Contact email not sent | `RESEND_API_KEY` missing or sender not verified. Messages are still stored. |
-| Public site shows seed content | MongoDB is unreachable or has no projects; the fallback is intentional. |
+| Public site shows seed content | MongoDB is unreachable or the projects collection is empty; the fallback is intentional. Run `npm run seed:initial` or deploy so the build can bootstrap content. |
 | Theme flashes | Ensure `ThemeProvider` remains in `app/layout.tsx` and `suppressHydrationWarning` stays on `<html>`. |
 
 ---
