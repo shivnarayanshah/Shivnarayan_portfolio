@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Trinayana Solution</title>
+  <desc id="desc">Editorial cover for a technology solutions company, with sage green geometry and connected nodes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#edf1e8"/>
+      <stop offset="1" stop-color="#dce6d7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".7" cy=".28" r=".7">
+      <stop offset="0" stop-color="#a9ba95" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#a9ba95" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <g stroke="#22301f" stroke-opacity=".12">
+    <path d="M0 720H1600M0 840H1600M1100 0V1000M1260 0V1000"/>
+  </g>
+  <circle cx="1210" cy="350" r="286" fill="none" stroke="#2f3e2a" stroke-opacity=".24" stroke-width="2"/>
+  <circle cx="1210" cy="350" r="206" fill="none" stroke="#2f3e2a" stroke-opacity=".18" stroke-width="2"/>
+  <circle cx="1210" cy="350" r="126" fill="none" stroke="#2f3e2a" stroke-opacity=".24" stroke-width="2"/>
+  <path d="M1210 64l174 302h-348Z" fill="#2f3e2a" opacity=".9"/>
+  <path d="M1210 636l-174-302h348Z" fill="#6f7d5d" opacity=".55"/>
+  <circle cx="1210" cy="350" r="42" fill="#edf1e8"/>
+  <circle cx="1210" cy="350" r="18" fill="#bf5a33"/>
+  <g fill="#2f3e2a">
+    <circle cx="926" cy="236" r="11"/><circle cx="1478" cy="214" r="8"/><circle cx="1512" cy="500" r="12"/><circle cx="930" cy="520" r="7"/>
+  </g>
+  <g stroke="#2f3e2a" stroke-opacity=".25" stroke-width="2">
+    <path d="M926 236l198 114M1478 214l-182 136M1512 500l-302-150M930 520l198-170"/>
+  </g>
+  <g transform="translate(110 120)">
+    <text font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="6" fill="#55654c">TRINAYANA SOLUTION</text>
+    <text y="46" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="3" fill="#7d8a74">DIGITAL HOME · 2025</text>
+  </g>
+  <g transform="translate(110 660)">
+    <text font-family="Georgia, 'Times New Roman', serif" font-size="118" letter-spacing="-4" fill="#1f2a1c">Trinayana</text>
+    <text y="98" font-family="Georgia, 'Times New Roman', serif" font-size="118" font-style="italic" letter-spacing="-4" fill="#6f7d5d">Solution</text>
+  </g>
+  <g transform="translate(111 900)">
+    <rect width="250" height="1" fill="#2f3e2a" opacity=".3"/>
+    <text y="34" font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="4" fill="#55654c">CLARITY · CREDIBILITY · CRAFT</text>
+  </g>
+</svg>

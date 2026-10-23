@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Jalpa Dental</title>
+  <desc id="desc">Calm dental clinic cover with teal arches, a soft smile line, and editorial typography.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef6f4"/>
+      <stop offset="1" stop-color="#d8eae6"/>
+    </linearGradient>
+    <linearGradient id="arch" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f6b63"/>
+      <stop offset="1" stop-color="#6e9b8d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <g opacity=".5" stroke="#2f6b63" stroke-opacity=".18">
+    <path d="M0 820H1600M0 900H1600"/>
+  </g>
+  <path d="M1030 760V420c0-190 154-344 344-344s344 154 344 344v340Z" fill="url(#arch)" opacity=".18"/>
+  <path d="M1100 760V450c0-158 128-286 286-286s286 128 286 286v310Z" fill="none" stroke="#2f6b63" stroke-opacity=".45" stroke-width="2"/>
+  <circle cx="1386" cy="430" r="130" fill="#f7fbfa" opacity=".75"/>
+  <path d="M1300 420c26 62 76 98 140 98 48 0 86-18 116-52" fill="none" stroke="#2f6b63" stroke-width="12" stroke-linecap="round"/>
+  <path d="M1334 366c12-30 42-48 78-44 34 4 60 24 72 52" fill="none" stroke="#bf5a33" stroke-width="7" stroke-linecap="round" opacity=".65"/>
+  <g fill="#2f6b63" opacity=".8">
+    <circle cx="1230" cy="230" r="8"/><circle cx="1510" cy="250" r="11"/><circle cx="1550" cy="600" r="7"/>
+  </g>
+  <g transform="translate(110 130)">
+    <text font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="6" fill="#4d7b72">JALPA DENTAL</text>
+    <text y="46" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="3" fill="#7c9d95">HEALTHCARE · 2025</text>
+  </g>
+  <g transform="translate(110 640)">
+    <text font-family="Georgia, 'Times New Roman', serif" font-size="134" letter-spacing="-5" fill="#173f39">Jalpa</text>
+    <text y="118" font-family="Georgia, 'Times New Roman', serif" font-size="134" font-style="italic" letter-spacing="-5" fill="#2f6b63">Dental</text>
+  </g>
+  <g transform="translate(111 900)">
+    <text font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="4" fill="#4d7b72">CALM CARE · CLEAR SERVICES · EASY ENQUIRIES</text>
+  </g>
+</svg>

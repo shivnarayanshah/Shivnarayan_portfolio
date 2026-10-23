@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Hamro Dental</title>
+  <desc id="desc">Warm, friendly dental practice cover with coral shapes and a blue smile arc.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f9ece5"/>
+      <stop offset="1" stop-color="#f2d8cc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="1270" cy="310" r="300" fill="#e98966" opacity=".82"/>
+  <circle cx="1270" cy="310" r="212" fill="#f9ece5" opacity=".55"/>
+  <path d="M1090 330c50 86 118 130 196 130 76 0 138-40 184-116" fill="none" stroke="#204a5a" stroke-width="16" stroke-linecap="round"/>
+  <path d="M1140 248c20-42 58-66 104-62 46 4 80 30 96 68" fill="none" stroke="#204a5a" stroke-width="8" stroke-linecap="round" opacity=".55"/>
+  <path d="M0 820c220-90 430-40 610 20 220 74 430 74 610-30 100-56 200-76 380-40v230H0Z" fill="#204a5a" opacity=".08"/>
+  <g stroke="#204a5a" stroke-opacity=".16">
+    <path d="M0 180H1600M0 760H1600"/>
+  </g>
+  <g transform="translate(110 130)">
+    <text font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="6" fill="#9a5239">HAMRO DENTAL</text>
+    <text y="46" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="3" fill="#b77a63">HEALTHCARE · 2025</text>
+  </g>
+  <g transform="translate(110 610)">
+    <text font-family="Georgia, 'Times New Roman', serif" font-size="146" letter-spacing="-6" fill="#3d231b">Hamro</text>
+    <text y="128" font-family="Georgia, 'Times New Roman', serif" font-size="146" font-style="italic" letter-spacing="-6" fill="#b5522f">Dental</text>
+  </g>
+  <g transform="translate(111 900)">
+    <text font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="4" fill="#9a5239">NEIGHBOURHOOD CARE · LOCAL TRUST · EASY CONTACT</text>
+  </g>
+</svg>

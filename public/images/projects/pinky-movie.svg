@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">PinkyMovie</title>
+  <desc id="desc">Playful cinematic cover with plum tones, film strip details, and bold title typography.</desc>
+  <defs>
+    <radialGradient id="glow" cx=".72" cy=".3" r=".8">
+      <stop offset="0" stop-color="#e05378" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#e05378" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#25121c"/>
+      <stop offset="1" stop-color="#3a1624"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb3c7"/>
+      <stop offset="1" stop-color="#e05378"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <g opacity=".9">
+    <rect x="1040" y="0" width="560" height="1000" fill="#0e0710" opacity=".35"/>
+    <g fill="#f6d8e0" opacity=".18">
+      <rect x="1090" y="50" width="80" height="56" rx="8"/><rect x="1090" y="150" width="80" height="56" rx="8"/><rect x="1090" y="250" width="80" height="56" rx="8"/><rect x="1090" y="350" width="80" height="56" rx="8"/><rect x="1090" y="450" width="80" height="56" rx="8"/><rect x="1090" y="550" width="80" height="56" rx="8"/><rect x="1090" y="650" width="80" height="56" rx="8"/><rect x="1090" y="750" width="80" height="56" rx="8"/><rect x="1090" y="850" width="80" height="56" rx="8"/>
+      <rect x="1470" y="50" width="80" height="56" rx="8"/><rect x="1470" y="150" width="80" height="56" rx="8"/><rect x="1470" y="250" width="80" height="56" rx="8"/><rect x="1470" y="350" width="80" height="56" rx="8"/><rect x="1470" y="450" width="80" height="56" rx="8"/><rect x="1470" y="550" width="80" height="56" rx="8"/><rect x="1470" y="650" width="80" height="56" rx="8"/><rect x="1470" y="750" width="80" height="56" rx="8"/><rect x="1470" y="850" width="80" height="56" rx="8"/>
+    </g>
+  </g>
+  <circle cx="1290" cy="500" r="180" fill="url(#pink)" opacity=".85"/>
+  <circle cx="1290" cy="500" r="96" fill="#25121c" opacity=".65"/>
+  <path d="M1262 440l96 60-96 60Z" fill="#fff2f5"/>
+  <g transform="translate(110 130)">
+    <text font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="6" fill="#e8a9ba">PINKYMOVIE · SIDE PROJECT</text>
+    <text y="46" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="3" fill="#b98594">ENTERTAINMENT · 2025</text>
+  </g>
+  <g transform="translate(110 610)">
+    <text font-family="Georgia, 'Times New Roman', serif" font-size="154" letter-spacing="-6" fill="#fff2f5">Pinky</text>
+    <text y="128" font-family="Georgia, 'Times New Roman', serif" font-size="154" font-style="italic" letter-spacing="-6" fill="url(#pink)">Movie</text>
+  </g>
+  <g transform="translate(111 920)">
+    <text font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="4" fill="#c997a5">FIND SOMETHING GOOD · FAST · NO CLUTTER</text>
+  </g>
+</svg>
