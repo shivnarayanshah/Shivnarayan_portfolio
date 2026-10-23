@@ -257,7 +257,7 @@ npm run build
 npm start        # or run behind pm2/nginx
 ```
 
-Use a process manager, terminate TLS at a reverse proxy, and keep `.env.local` out of version control. Set `AUTH_SECRET` to a long random value; production sessions fail closed without it. `npm run build` reads the same environment, upserts the admin user when `ADMIN_EMAIL` / `ADMIN_PASSWORD` are set, and fills missing site/project content, so MongoDB must be reachable during the build.
+Use a process manager, terminate TLS at a reverse proxy, and keep `.env.local` out of version control. Set `AUTH_SECRET` to a long random value; production sessions fail closed without it. `npm run build` reads the same environment, upserts the admin user when `ADMIN_EMAIL` / `ADMIN_PASSWORD` are set, and fills missing site/project content. Keep MongoDB reachable during the build to seed; otherwise it warns and uses fallback content unless `SEED_STRICT=true`.
 
 ### External revalidation
 

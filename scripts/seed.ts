@@ -132,9 +132,8 @@ async function main() {
 
   const admin = readAdminCredentials();
 
-  // Builds without admin credentials (for example a public preview) should
-  // still succeed. No database connection is opened when there is nothing to
-  // seed, so a missing MONGO_URI cannot break those builds either.
+  // `seed:admin` has nothing to do without credentials. Skip before opening a
+  // connection so a manual or preview run cannot fail on a missing database.
   if (adminOnly && !admin.email) {
     console.warn(
       "! ADMIN_EMAIL / ADMIN_PASSWORD not set — skipping admin seed.",

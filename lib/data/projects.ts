@@ -82,9 +82,7 @@ const getCachedProjectBySlug = unstable_cache(
           console.warn(
             `[project:${slug}] database is empty — using initial static project.`,
           );
-          return (
-            FALLBACK_PROJECTS.find((item) => item.slug === slug) ?? null
-          );
+          return FALLBACK_PROJECTS.find((item) => item.slug === slug) ?? null;
         }
         return null;
       }
